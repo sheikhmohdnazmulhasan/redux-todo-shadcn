@@ -3,10 +3,13 @@ import { Button } from '../ui/button';
 import { Label } from '../ui/label';
 import { Input } from '../ui/input';
 import { useState } from 'react';
+import { useAppDispatch } from '@/redux/hook';
+import { addTodo } from '@/redux/features/todoSlice';
 
 const AddTodoModal = () => {
     const [task, setTask] = useState('');
     const [description, setDescription] = useState('');
+    const dispatch = useAppDispatch();
 
     function handleAddTodo() {
 
@@ -15,9 +18,8 @@ const AddTodoModal = () => {
             return
         }
 
-        const newTodo: { task: string; description: string } = { task, description };
+        dispatch(addTodo({ task, description }));
 
-        console.log(newTodo);
     }
 
     return (
