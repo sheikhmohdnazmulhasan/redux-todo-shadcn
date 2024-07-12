@@ -18,7 +18,9 @@ const AddTodoModal = () => {
             return
         }
 
-        dispatch(addTodo({ task, description }));
+        const id = Math.random().toString(36).substring(2);
+
+        dispatch(addTodo({ task, description, id, isCompleted: false }));
 
     }
 
