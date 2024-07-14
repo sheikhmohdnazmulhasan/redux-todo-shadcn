@@ -1,26 +1,49 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog';
 import { Button } from '../ui/button';
 import { Label } from '../ui/label';
 import { Input } from '../ui/input';
 import { useState } from 'react';
-import { useAppDispatch } from '@/redux/hook';
-import { addTodo } from '@/redux/features/todoSlice';
+import { useAddTodoMutation } from '@/redux/api/api';
+// import { useAppDispatch } from '@/redux/hook';
+// import { addTodo } from '@/redux/features/todoSlice';
 
 const AddTodoModal = () => {
     const [task, setTask] = useState('');
     const [description, setDescription] = useState('');
-    const dispatch = useAppDispatch();
+    // const dispatch = useAppDispatch();
 
+    const [addTodo, { data, isError, isLoading, isSuccess }] = useAddTodoMutation();
+
+    console.log('log from todo model =>', { data, isError, isLoading, isSuccess });
+
+    //! for local
+    // function handleAddTodo() {
+
+    //     if (!task || !description) {
+    //         alert('Please type task and description');
+    //         return;
+    //     }
+
+    //     const id = Math.random().toString(36).substring(2);
+
+    //     dispatch(addTodo({ task, description, id, isCompleted: false }));
+
+    // }
+
+    //! for Server
     function handleAddTodo() {
 
         if (!task || !description) {
             alert('Please type task and description');
-            return
+            return;
         }
 
         const id = Math.random().toString(36).substring(2);
 
-        dispatch(addTodo({ task, description, id, isCompleted: false }));
+        const data = { task, description, id, isCompleted: false };
+
+        addTodo(data);
 
     }
 

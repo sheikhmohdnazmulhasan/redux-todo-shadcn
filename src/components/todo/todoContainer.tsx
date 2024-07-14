@@ -8,11 +8,8 @@ import { useGetTodosQuery } from "@/redux/api/api";
 const TodoContainer = () => {
     const { todos } = useAppSelector(state => state.todos);
 
-    const { data, isLoading, error } = useGetTojdosQuery(undefined);
+    const { data, isLoading, error } = useGetTodosQuery(undefined);
 
-    console.log('data');
-
-    console.log('object');
     return (
         <div className="">
             <div className="flex justify-between mb-5">
