@@ -10,6 +10,11 @@ interface TTodoProps {
     isCompleted: boolean
 }
 
+console.log('sss');
+
+console.log('object');
+
+
 const TodoCard = ({ title, description, id, isCompleted }: TTodoProps) => {
     const dispatch = useAppDispatch();
 
@@ -22,6 +27,7 @@ const TodoCard = ({ title, description, id, isCompleted }: TTodoProps) => {
             <input onChange={handleToggleState} type="checkbox" name="" id="" />
             <h1>{title}</h1>
             {/* <p>time</p> */}
+            
             {isCompleted ? <p className="text-green-500">Done</p> : <p className="text-red-500">Pending</p>}
             <p>{description}</p>
             <div className="flex gap-4">

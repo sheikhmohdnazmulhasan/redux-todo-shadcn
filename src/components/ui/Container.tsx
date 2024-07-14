@@ -12,4 +12,4 @@ const Container = ({ children }: TContainerProps) => {
     
 };
 
-export default Container;
+export default Container

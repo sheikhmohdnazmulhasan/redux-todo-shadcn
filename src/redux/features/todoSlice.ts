@@ -11,6 +11,10 @@ type TInitialState = {
     todos: TTodo[]
 }
 
+console.log('object');
+
+console.log('object');
+
 const initialState: TInitialState = { todos: [] };
 
 export const todoSlice = createSlice({

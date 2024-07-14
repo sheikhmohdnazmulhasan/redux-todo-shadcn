@@ -18,13 +18,12 @@ const UpdateTodoModal = ({ title, description, id, }: TTodoProps) => {
     const dispatch = useAppDispatch()
 
     function handleUpdateTodo() {
-        const updatedDoc: { task: string, title: string; description: string; id: string } = { task: task ? task : title, description: UpdatedDescription ? UpdatedDescription : description, id: id };
+        const updatedDoc: { task: string, description: string; id: string } = { task: task ? task : title, description: UpdatedDescription ? UpdatedDescription : description, id: id };
 
         dispatch(updateTodo(updatedDoc));
 
     }
-
-
+    
 
     return (
         <Dialog>
