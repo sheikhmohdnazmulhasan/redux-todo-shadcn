@@ -8,10 +8,12 @@ import { useGetTodosQuery } from "@/redux/api/api";
 const TodoContainer = () => {
     const { todos } = useAppSelector(state => state.todos);
 
-    const { data, isLoading, error } = useGetTodosQuery(undefined);
+    const { data, isLoading, error } = useGetTodosQuery(10);
+    console.log(data);
 
     return (
         <div className="">
+            {/* <p>{data.length}</p> */}
             <div className="flex justify-between mb-5">
                 <AddTodoModal />
                 <FilterDropdown />
